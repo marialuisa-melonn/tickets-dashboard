@@ -1,5 +1,4 @@
-name: Actualizar datos del dashboard                                                                                                                                                                            
-    on:        ← 2 espacios de sobra aquí                                                                                                                                                                                                                                                                                                                                                                                             Debe quedar así:                                                                                                                                                                                                                                                                                                                                                                                                                    name: Actualizar datos del dashboard
+name: Actualizar datos del dashboard
 
   on:
     schedule:
