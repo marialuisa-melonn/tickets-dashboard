@@ -1,9 +1,9 @@
  import psycopg2
-  import json
-  import os
-  from datetime import datetime
+ import json
+ import os
+ from datetime import datetime
 
-  conn = psycopg2.connect(
+ conn = psycopg2.connect(
       host=os.environ["REDSHIFT_HOST"],
       port=os.environ.get("REDSHIFT_PORT", 5439),
       dbname=os.environ["REDSHIFT_DB"],
@@ -27,9 +27,7 @@
     JOIN orbita.seller_buyer_support sbs ON sbs.id::varchar = hc.orbita_seller_id
     WHERE sbs.is_active = 1 AND ht.create_date >= '2026-03-01'
     GROUP BY 1
-
     UNION ALL
-
     SELECT DATE_TRUNC('week', t.created_at), 0, COUNT(DISTINCT t.id), 0
     FROM orbita.ticket t
     JOIN orbita.seller_buyer_support sbs ON sbs.id = t.seller_id
